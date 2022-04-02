@@ -24,7 +24,16 @@ function createFeatures(earthquakeData) {
   function set_color(depth){
       console.log (depth);
      // if depth >100 fillColor= "blue"
-    return ("#ff7800")
+    switch (true) {
+        case depth< 5:
+         return ("#ffb6c1")
+        case depth  >= 10 &&  
+         depth <= 6:
+         return ("#FF0000")
+        case depth >11:
+         return ("#800000")
+    }
+  
   }
 
  var earthquakes = L.geoJSON(earthquakeData, {
@@ -36,7 +45,9 @@ function createFeatures(earthquakeData) {
             weight: 1,
             opacity: 1,
             fillOpacity: 0.8
+            
         });
+        .bindPopup(`<h1>${depth}</h1> <hr> <h3>Population: ${place.toLocaleString()}</h3>`).addTo(myMap);
     }
 })
 
