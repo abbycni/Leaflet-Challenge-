@@ -56,28 +56,13 @@ function createFeatures(earthquakeData) {
             fillOpacity: 0.8
             //color: "#000",
         }); 
+       
       });
-       .bindPopup(`<h1>${depth}</h1> <hr> <h3>Population: ${place.toLocaleString()}</h3>`).addTo(myMap); 
-        //.bindPopup("<h3>" +feature.geometry.coordinates[2]+ "<h3><h3>Location: " + feature.properties.place + "</h3>");
-        
-        
-          //console.log (features);
+       
+      
       }
      
     
-       
-   // .bindPopup(`<h1>${feature.geometry.coordinates[2]}</h1>`).addTo(myMap);
-})
-function popup(depth)
-var popup = L.popup()
-    .setLatLng(L.circleMarker)
-    .setContent('<p>Hello world!<br />This is a nice popup.</p>')
-    .openOn(map);
-//var circleMarker = L.circleMarker([feature.geometry.coordinates[2], feature.properties.place])
-//.bindPopup("<h3>" +depth+ "<h3><h3>Location: " + place + "</h3>");
-
-
-  // Send our earthquakes layer to the createMap function/
   createMap(earthquakes);
 }
 
