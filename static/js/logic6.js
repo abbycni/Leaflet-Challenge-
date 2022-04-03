@@ -23,46 +23,24 @@ function createFeatures(earthquakeData) {
 
   function set_color(depth){
       console.log (depth);
-    
+     // if depth >100 fillColor= "blue"
     switch (true) {
-         case depth< 5:
+        case depth< 5:
          return ("#ffb6c1")
-<<<<<<< HEAD
-        case depth  >= 6 &&  
-         depth <= 10:
-         return ("#FF0000")
-        case depth >= 11 && depth<=20:
-=======
-         case depth  >= 10 &&  
+        case depth  >= 10 &&  
          depth <= 6:
          return ("#FF0000")
-         case depth >11 && depth<=20:
->>>>>>> 77232b3 (update 6)
+        case depth >11 && depth<=20:
          return ("#800000")
          case depth >= 21:
          return ("#000000")
     }
     }
-    // pink #ffb6c1
-  // red #FF0000"
-  // maroon #800000
-  // black #000000
   
-  
-<<<<<<< HEAD
-    console.log (features);
-    // pink #ffb6c1
-  // red #FF0000"
-  // maroon #800000
-  // black #000000
-  }
-=======
->>>>>>> 77232b3 (update 6)
+  //}
 
  var earthquakes = L.geoJSON(earthquakeData, {
-    pointToLayer: function (feature, latlng)
-    
-    {
+    pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng, {
             radius: feature.properties.mag*10,
             fillColor: set_color(feature.geometry.coordinates[2]), //"#ff7800",
@@ -71,9 +49,9 @@ function createFeatures(earthquakeData) {
             opacity: 1,
             fillOpacity: 0.8
             
-        }).bindPopup(`<h3>Depth: ${feature.geometry.coordinates[2]}</h3> <hr> <h3>Location: ${feature.properties.place}</h3></h3> <hr> <h3>Magnitude: ${feature.properties.mag}</h3>`);
+        }).bindPopup(`<h1>${feature.geometry.coordinates[2]}</h1> <hr> <h3>Location: ${feature.properties.place}</h3>`);
        
-      }
+    }
 })
 
  
@@ -112,34 +90,7 @@ function createMap(earthquakes) {
     zoom: 5,
     layers: [street, earthquakes]
   });
-//--------------
-/*Setup*/
-var map = L.map("mapid").setView([55.67, 12.57], 7);
-L.tileLayer(
- // "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg"
-).addTo(map);
 
-//-----
-/*Legend specific*/
-var legend = L.control({ position: "bottomleft" });
-
-legend.onAdd = function(map) {
-  var div = L.DomUtil.create("div", "legend");
-  div.innerHTML += "<h4>Legend</h4>";
-  div.innerHTML += '<i style="background: #ffb6c1"></i><span>Depth less than 5</span><br>';
-  div.innerHTML += '<i style="background: #FF0000"></i><span>Depth beteen 6 and 10</span><br>';
-  div.innerHTML += '<i style="background: #800000"></i><span>Depth between 11 and 20</span><br>';
-  div.innerHTML += '<i style="background: ##000000"></i><span>Depth greater than 20</span><br>';
-  div.innerHTML += '<i style="background: #FFFFFF"></i><span>Ice</span><br>';
-  div.innerHTML += '<i class="icon" style="background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/194515-200.png);background-repeat: no-repeat;"></i><span>Grænse</span><br>';
-  
-  
-
-  return div;
-};
-
-legend.addTo(map);
-  //------------------
   // Create a layer control.
   // Pass it our baseMaps and overlayMaps.
   // Add the layer control to the map.
