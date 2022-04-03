@@ -98,10 +98,10 @@ function createMap(earthquakes) {
   });
 //--------------
 /*Setup*/
-var map = L.map("mapid").setView([55.67, 12.57], 7);
-L.tileLayer(
+//var map = L.map("mapid").setView([55.67, 12.57], 7);
+//L.tileLayer(
  // "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg"
-).addTo(map);
+//).addTo(map);
 
 //-----
 /*Legend specific*/
