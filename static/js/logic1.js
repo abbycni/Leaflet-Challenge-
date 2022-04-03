@@ -27,17 +27,10 @@ function createFeatures(earthquakeData) {
     switch (true) {
          case depth< 5:
          return ("#ffb6c1")
-<<<<<<< HEAD
-        case depth  >= 6 &&  
-         depth <= 10:
-         return ("#FF0000")
-        case depth >= 11 && depth<=20:
-=======
          case depth  >= 10 &&  
          depth <= 6:
          return ("#FF0000")
          case depth >11 && depth<=20:
->>>>>>> 77232b3 (update 6)
          return ("#800000")
          case depth >= 21:
          return ("#000000")
@@ -49,15 +42,6 @@ function createFeatures(earthquakeData) {
   // black #000000
   
   
-<<<<<<< HEAD
-    console.log (features);
-    // pink #ffb6c1
-  // red #FF0000"
-  // maroon #800000
-  // black #000000
-  }
-=======
->>>>>>> 77232b3 (update 6)
 
  var earthquakes = L.geoJSON(earthquakeData, {
     pointToLayer: function (feature, latlng)
