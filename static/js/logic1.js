@@ -33,7 +33,7 @@ function createFeatures(earthquakeData) {
          case depth >11 && depth<=20:
          return ("#800000")
          case depth >= 21:
-         return ("#000000")
+         return ("#1a0000")
     }
     }
     // pink #ffb6c1
@@ -49,7 +49,7 @@ function createFeatures(earthquakeData) {
     {
         return L.circleMarker(latlng, {
             radius: feature.properties.mag*10,
-            fillColor: set_color(feature.geometry.coordinates[2]), //"#ff7800",
+            fillColor: set_color(feature.geometry.coordinates[2]), 
             color: "white",
             weight: 1,
             opacity: 1,
@@ -113,16 +113,15 @@ legend.onAdd = function(map) {
   div.innerHTML += '<i style="background: #ffb6c1"></i><span>Depth less than 5</span><br>';
   div.innerHTML += '<i style="background: #FF0000"></i><span>Depth beteen 6 and 10</span><br>';
   div.innerHTML += '<i style="background: #800000"></i><span>Depth between 11 and 20</span><br>';
-  div.innerHTML += '<i style="background: ##000000"></i><span>Depth greater than 20</span><br>';
-  div.innerHTML += '<i style="background: #FFFFFF"></i><span>Ice</span><br>';
-  div.innerHTML += '<i class="icon" style="background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/194515-200.png);background-repeat: no-repeat;"></i><span>Grænse</span><br>';
+  div.innerHTML += '<i style="background: "#1a0000"></i><span>Depth greater than 20</span><br>';
+  div.innerHTML += '<i class="icon" style="background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/194515-200.png);background-repeat: no-repeat;"></i><span>Earthquakes</span><br>';
   
   
 
   return div;
 };
 
-legend.addTo(map);
+legend.addTo(myMap);
   //------------------
   // Create a layer control.
   // Pass it our baseMaps and overlayMaps.
